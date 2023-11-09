@@ -248,7 +248,10 @@ return [
         'username' => 'ユーザー名',
         'year' => '年',
         'content' => '本文',
-        'memo'=>'メモ'
+        'memo'=>'メモ',
+        'kana'=>'カナ',
+        'tel'=>'電話番号',
+        'postcode'=>'郵便番号'
     ],
 
 ];

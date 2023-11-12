@@ -21,16 +21,22 @@ class Customer extends Model
         'memo',
     ];
 
-    public function scopeSearchCustomer($query , $input=null)
+   
+    public function scopeSearchCustomers($query, $input = null)
     {
-        if(!empty($input))
-        {
-            if(Customer::where('kana' , 'like' , $input.'%')
-            ->orWhere('tel' , 'like' , $input. '%')->exists())
-                {
-                    return $query->where('kana' , 'like' , $input.'%')
-                    ->orWhere('tel' , 'like' , $input.'%');
-                }
+        if(!empty($input)){
+            if(Customer::where('kana', 'like', $input . '%' )
+            ->orWhere('tel', 'like', $input . '%')->exists())
+            {
+                return $query->where('kana', 'like', $input . '%' )
+                ->orWhere('tel', 'like', $input . '%');
+            } 
         }
+    }
+
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
     }
 }

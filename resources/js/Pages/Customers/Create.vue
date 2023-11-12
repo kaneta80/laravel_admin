@@ -23,6 +23,12 @@ const fetchAddress = () => {
  form.address = value.region + value.locality + value.street 
  }) 
 }
+
+const search = ref("")
+
+const searchCustomers = () => { 
+ Inertia.get(route('customers.index', { search: search.value })) 
+}
 </script>
 
 <template>

@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
-        $customers=Customer::SearchCustomer($request->search)
+        $customers=Customer::SearchCustomers($request->search)
         ->select('id' , 'kana' , 'name' , 'tel')->paginate(50);
         return Inertia::render('Customers/index', [
             'customers'=>$customers
